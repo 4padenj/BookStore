@@ -21,6 +21,8 @@ namespace BookStore.Models
         [Required]
         public string AuthorLastName { get; set; }
         [Required]
+        public int NumPages { get; set; }
+        [Required]
         public string Publisher { get; set; }
         [Required]
         public string Classification { get; set; }

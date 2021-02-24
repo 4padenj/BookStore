@@ -2,7 +2,7 @@
 
 namespace BookStore.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Updated : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,6 +17,7 @@ namespace BookStore.Migrations
                     AuthorFirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AuthorMidName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AuthorLastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumPages = table.Column<int>(type: "int", nullable: false),
                     Publisher = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Classification = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: false),

@@ -28,6 +28,7 @@ namespace BookStore.Models
                         AuthorFirstName = "Victor",
                         AuthorMidName = "",
                         AuthorLastName = "Hugo",
+                        NumPages = 1488,
                         Publisher = "Signet",
                         Classification = "Fiction",
                         Category = "Classic",
@@ -40,6 +41,7 @@ namespace BookStore.Models
                         AuthorFirstName = "Doris",
                         AuthorMidName = "Kearns",
                         AuthorLastName = "Goodwin",
+                        NumPages = 944,
                         Publisher = "Simon & Schuster",
                         Classification = "Non-Fiction",
                         Category = "Biography",
@@ -52,6 +54,7 @@ namespace BookStore.Models
                         AuthorFirstName = "Alice",
                         AuthorMidName = "",
                         AuthorLastName = "Schroeder",
+                        NumPages = 832,
                         Publisher = "Bantam",
                         Classification = "Non-Fiction",
                         Category = "Biography",
@@ -64,6 +67,7 @@ namespace BookStore.Models
                         AuthorFirstName = "Ronald",
                         AuthorMidName = "C.",
                         AuthorLastName = "White",
+                        NumPages = 864,
                         Publisher = "Random House",
                         Classification = "Non-Fiction",
                         Category = "Biography",
@@ -76,6 +80,7 @@ namespace BookStore.Models
                         AuthorFirstName = "Laura",
                         AuthorMidName = "",
                         AuthorLastName = "Hillenbrand",
+                        NumPages = 528,
                         Publisher = "Random House",
                         Classification = "Non-Fiction",
                         Category = "Historical",
@@ -88,6 +93,7 @@ namespace BookStore.Models
                         AuthorFirstName = "Michael",
                         AuthorMidName = "",
                         AuthorLastName = "Crichton",
+                        NumPages = 288,
                         Publisher = "Vintage",
                         Classification = "Fiction",
                         Category = "Historical Fiction",
@@ -100,6 +106,7 @@ namespace BookStore.Models
                         AuthorFirstName = "Cal",
                         AuthorMidName = "",
                         AuthorLastName = "Newport",
+                        NumPages = 304,
                         Publisher = "Grand Central Publishing",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
@@ -112,6 +119,7 @@ namespace BookStore.Models
                         AuthorFirstName = "Michael",
                         AuthorMidName = "",
                         AuthorLastName = "Abrashoff",
+                        NumPages = 240,
                         Publisher = "Grand Central Publishing",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
@@ -124,6 +132,7 @@ namespace BookStore.Models
                         AuthorFirstName = "Richard",
                         AuthorMidName = "",
                         AuthorLastName = "Branson",
+                        NumPages = 400,
                         Publisher = "Portfolio",
                         Classification = "Non-Fiction",
                         Category = "Business",
@@ -136,10 +145,51 @@ namespace BookStore.Models
                         AuthorFirstName = "John",
                         AuthorMidName = "",
                         AuthorLastName = "Grisham",
+                        NumPages = 642,
                         Publisher = "Bantam",
                         Classification = "Fiction",
                         Category = "Thrillers",
                         Price = 15.03
+                    },
+                    // My Additions
+                    new Book
+                    {
+                        ISBN = "978-1633697201",
+                        Title = "The Innovators DNA",
+                        AuthorFirstName = "Clayton",
+                        AuthorMidName = "M.",
+                        AuthorLastName = "Christensen",
+                        NumPages = 230,
+                        Publisher = "Harvard Business Review Press",
+                        Classification = "Non-Fiction",
+                        Category = "Business",
+                        Price = 21.49
+                    },
+                    new Book
+                    {
+                        ISBN = "978-0060694425",
+                        Title = "The Spirit of the Disciplines: Understanding How God Changes Lives",
+                        AuthorFirstName = "Dallas",
+                        AuthorMidName = "",
+                        AuthorLastName = "Willard",
+                        NumPages = 288,
+                        Publisher = "HarperOne",
+                        Classification = "Non-Fiction",
+                        Category = "Theology",
+                        Price = 11.49
+                    },
+                    new Book
+                    {
+                        ISBN = "978-1590523742",
+                        Title = "The Mystery of Marriage",
+                        AuthorFirstName = "Mike",
+                        AuthorMidName = "",
+                        AuthorLastName = "Mason",
+                        NumPages = 224,
+                        Publisher = "Multnomah",
+                        Classification = "Non-Fiction",
+                        Category = "Theological/Self-help",
+                        Price = 17.00
                     }
                 );
                 context.SaveChanges();
