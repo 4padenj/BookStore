@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStore.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20210224161045_Updated")]
-    partial class Updated
+    [Migration("20210303193930_Updated_Seed")]
+    partial class Updated_Seed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

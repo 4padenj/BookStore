@@ -188,7 +188,7 @@ namespace BookStore.Models
                         NumPages = 224,
                         Publisher = "Multnomah",
                         Classification = "Non-Fiction",
-                        Category = "Theological/Self-help",
+                        Category = "Theology",
                         Price = 17.00
                     }
                 );

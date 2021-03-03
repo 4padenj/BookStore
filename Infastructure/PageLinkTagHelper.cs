@@ -25,7 +25,12 @@ namespace BookStore.Infastructure
         public ViewContext ViewContext { get; set; }
         public PagingInfo PageModel { get; set;}
         public string PageAction { get; set; }
-        // These Variables are for adding classes
+
+        // This makes a dictionary of objects with a prefix of page-url-
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
+        // These Variables are for adding asp attributes
+
         public bool PageClassEnabled { get; set; } = false;
         public string PageClass { get; set; }
         public string PageClassNormal { get; set; }
@@ -38,9 +43,10 @@ namespace BookStore.Infastructure
             TagBuilder result = new TagBuilder("div");
             for (int i = 1; i <= PageModel.TotalPages; i++)
             {   
-
                 TagBuilder tag = new TagBuilder("a");
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { page = i });
+
+                PageUrlValues["page"] = i;
+                tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
                 // Add the css classes to the tags
                 if (PageClassEnabled)
                 {

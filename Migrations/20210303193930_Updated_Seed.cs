@@ -2,7 +2,7 @@
 
 namespace BookStore.Migrations
 {
-    public partial class Updated : Migration
+    public partial class Updated_Seed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

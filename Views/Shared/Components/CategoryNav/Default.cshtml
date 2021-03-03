@@ -1,0 +1,22 @@
+﻿@*
+    Component for a menu that allows for filtering by Category
+*@
+@model IEnumerable<string> 
+
+<div class="container bg-dark rounded mt-1 py-2">
+    <div class="text-light mt-1">
+        <h4>Filter Books</h4>
+    </div>
+    <div><a class="btn btn-block @(ViewBag.activeCat == null ? "btn-light" : "btn-outline-light") my-2 mx-1"
+            asp-action="Index" asp-controller="Home"
+            asp-route-category="" asp-route-page="1"
+            >All</a></div>
+    @foreach (string cat in Model)
+    {
+        <div class="">
+            <a class="btn btn-block @(cat == ViewBag.activeCat ? "btn-light" : "btn-outline-light") my-2 mx-1"
+               asp-action="Index" asp-controller="Home"
+               asp-route-category="@cat" asp-route-page="1">@cat</a>
+        </div>
+    }
+</div>

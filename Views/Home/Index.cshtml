@@ -3,41 +3,18 @@
 }
 @model BookListViewModel
 
-    
-<div class="jumbotron text-center bg-light">
-    <h1 class="display-1">Welcome to the Book Store!</h1>
-    <p class="lead">Reading is good for the soul. We wanted to share with you a few of our very favorite books. Hope you enjoy!</p>
-    <blockquote class="blockquote">
-        <p class="m-1">"The more that you read, the more things you will know. The more that you learn, the more places you’ll go. "</p>
-        <footer class="blockquote-footer">Dr. Seuss</footer>
-    </blockquote>
-</div>
+
 <div class="container">
-    <div class="row">
-        @foreach (Book b in Model.Books)
-        {
-            <div class="w-75 my-2">
-                <div class="card bg-info">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h3 class="card-title text-truncate">@b.Title</h3>
-                                <h6 class="card-title">@b.NumPages Pages</h6>
-                                <a href="#" class="card-link text-light">$@b.Price</a>
-                            </div>
-                            <div class="col-md-6">
-                                <h6 class="card-subtitle mb-2 text-muted">@b.AuthorFirstName @b.AuthorMidName @b.AuthorLastName</h6>
-                                <p class="card-text">Publisher: @b.Publisher </p>
-                                <p class="card-text">[@b.Classification] @b.Category</p>
-                                <a href="#" class="card-link text-light">ISBN: @b.ISBN</a>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-    <div page-model="@Model.PagingInfo" action="Index" page-class-enabled="true" page-class="btn" page-class-normal="btn-outline-info" page-class-selected="btn-info" class="btn-group pull-right m-1"></div>
+    
+    @foreach (Book b in Model.Books)
+    {
+        <partial name="BookSummary" model="b" />
+    }
+
+    <div page-model="@Model.PagingInfo" action="Index" page-class-enabled="true" 
+         page-class="btn" page-class-normal="btn-outline-info" page-class-selected="btn-info" 
+         page-url-category ="@Model.CurrentCategory"
+         class="btn-group pull-right m-1"></div>
 
 </div>
 

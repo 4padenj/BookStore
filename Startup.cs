@@ -55,11 +55,26 @@ namespace BookStore
 
             app.UseEndpoints(endpoints =>
             {
-                // Prettify Our Url's For Better Presentation
+                // To Allow for Category AND Pagination
+                endpoints.MapControllerRoute("categoryPage",
+                    "{category}/P{page:int}",
+                    new { Controller = "Home", action = "Index" });
+                
+                // For Page Number no category
                 endpoints.MapControllerRoute(
                     "pagination",
-                    "P{page}",
-                    new { Controller = "Home", action = "Index" });
+                    "P{page:int}",
+                    new { Controller = "Home", action = "Index", page = 1 });
+
+   
+                // To allow for just Category Input
+                endpoints.MapControllerRoute("category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", page = 1 });
+
+                // Prettify Our Url's For Better Presentation
+                
+
                 endpoints.MapDefaultControllerRoute();
             });
             SeedData.EnsurePopulated(app);
