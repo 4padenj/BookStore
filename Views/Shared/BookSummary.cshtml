@@ -20,6 +20,13 @@
                     <a href="#" class="card-link text-light">ISBN: @Model.ISBN</a>
                 </div>
             </div>
+            <div class="row">
+                <form id="@Model.BookID" asp-page="/Purchase" method="post">
+                    <input type="hidden" asp-for="BookID" />
+                    <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
+                    <button type="submit" class="btn btn-outline-light btn-lg">Add Book to Cart</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

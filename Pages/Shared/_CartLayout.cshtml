@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@*
+    Shared Layout for the Razor Pages
+*@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,8 +9,6 @@
     <title>@ViewData["Title"] - BookStore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-
-    <link href="~/lib/font-awesome/css/fontawesome.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -28,31 +29,14 @@
                         </li>
                     </ul>
                 </div>
-                <div class="navbar-text justify-content-end">
-                    <vc:cart-summary />
-                </div>
             </div>
         </nav>
     </header>
-    <div class="jumbotron text-center bg-light">
-        <h1 class="display-3">Welcome to the Book Store!</h1>
-        <p class="lead">Reading is good for the soul. We wanted to share with you a few of our very favorite books. Hope you enjoy!</p>
-        <blockquote class="blockquote">
-            <p class="m-1">"The more that you read, the more things you will know. The more that you learn, the more places you’ll go. "</p>
-            <footer class="blockquote-footer">Dr. Seuss</footer>
-        </blockquote>
-    </div>
+    
     <div class="container">
         <main role="main" class="pb-3">
-            <div class="row">
-                <div class="col-3">
-                    <vc:category-nav/>
-                </div>
-                <div class="col-9">
-                    @RenderBody()
-                </div>
-            </div>
-            
+            @RenderBody()
+
         </main>
     </div>
 

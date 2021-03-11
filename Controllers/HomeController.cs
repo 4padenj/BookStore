@@ -22,7 +22,7 @@ namespace BookStore.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(string category, int page = 1)
+        public IActionResult Index(string category, int pageNum = 1)
         {
             return View(new BookListViewModel
             {
@@ -31,17 +31,18 @@ namespace BookStore.Controllers
                 Books = _repository.Books
                     .Where(p => category == null || p.Category == category)
                     .OrderBy(b => b.BookID)
-                    .Skip((page - 1) * BooksPerPage)
+                    .Skip((pageNum - 1) * BooksPerPage)
                     .Take(BooksPerPage),
                 // Paging info allows us to use pagination links - passes the data into the viewModel
                 PagingInfo = new PagingInfo
                 {
-                    CurrentPage = page,
+                    CurrentPage = pageNum,
                     BooksOnPage = BooksPerPage,
                     TotalNumBooks = category == null ? _repository.Books.Count() : 
                         _repository.Books.Where(b => b.Category == category).Count()
                 },
                 CurrentCategory = category
+
             });   
         }
 

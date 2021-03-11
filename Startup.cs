@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookStore.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace BookStore
 {
@@ -27,9 +28,14 @@ namespace BookStore
         {
             services.AddControllersWithViews();
             services.AddDbContext<StoreDbContext>(options => {
-                options.UseSqlServer(Configuration["ConnectionStrings:BookStoreConnection"]);
+                options.UseSqlite(Configuration["ConnectionStrings:BookStoreConnection"]);
             });
             services.AddScoped<IStoreRepository, EFStoreRepository>();
+            services.AddRazorPages();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            services.AddScoped<Cart>(bStore => SessionCart.GetCart(bStore));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
         }
 
@@ -48,6 +54,7 @@ namespace BookStore
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 
@@ -57,25 +64,23 @@ namespace BookStore
             {
                 // To Allow for Category AND Pagination
                 endpoints.MapControllerRoute("categoryPage",
-                    "{category}/P{page:int}",
+                    "{category}/P{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
                 
                 // For Page Number no category
                 endpoints.MapControllerRoute(
                     "pagination",
-                    "P{page:int}",
-                    new { Controller = "Home", action = "Index", page = 1 });
+                    "P{pageNum:int}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
 
    
                 // To allow for just Category Input
                 endpoints.MapControllerRoute("category",
                     "{category}",
-                    new { Controller = "Home", action = "Index", page = 1 });
-
-                // Prettify Our Url's For Better Presentation
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
                 
-
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
             SeedData.EnsurePopulated(app);
         }
